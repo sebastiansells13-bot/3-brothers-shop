@@ -1,0 +1,36 @@
+---
+layout: layouts/page.njk
+title: About
+description: The story of 3 Brothers Shop LLC, from the Las Cruces farmers market to Main Street.
+permalink: /about/
+---
+<header class="page-hero">
+  <div class="wrapper">
+    <p class="script">Nuestra historia</p>
+    <h1>About the Shop</h1>
+  </div>
+</header>
+<section class="parchment section">
+  <div class="wrapper about__grid">
+    <figure class="framed framed--tilt-left"><img src="{{ about.image }}" alt="3 Brothers Shop decorations and antiques logo" width="640" height="640"></figure>
+    <div class="prose">
+      <h2>{{ about.heading }}</h2>
+      {{ about.body | markdown | safe }}
+      <p class="signature">— {{ business.owner }}, owner</p>
+    </div>
+  </div>
+</section>
+<section class="section news-strip">
+  <div class="wrapper">
+    <header class="section-head section-head--light">
+      <p class="script">Desde el mercado</p>
+      <h2>From the Farmers Market to Main Street</h2>
+    </header>
+    <div class="timeline">
+      <figure><img src="/img/posts/farmers-market-flyer-2.jpg" alt="We're at the Farmers Market flyer" loading="lazy"><figcaption>At the Farmers &amp; Crafts Market</figcaption></figure>
+      <figure><img src="/img/posts/coming-soon.jpg" alt="Coming soon, new location flyer" loading="lazy"><figcaption>A new location announced</figcaption></figure>
+      <figure><img src="/img/posts/open-tomorrow.jpg" alt="Open tomorrow at 130 S Main St flyer" loading="lazy"><figcaption>Open at 130 S Main St</figcaption></figure>
+    </div>
+  </div>
+</section>
+{% include "components/visit.njk" %}

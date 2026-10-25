@@ -1,0 +1,19 @@
+---
+layout: layouts/page.njk
+title: News & Events
+description: Announcements, markets and events from 3 Brothers Shop LLC in Las Cruces.
+permalink: /news/
+---
+<header class="page-hero">
+  <div class="wrapper">
+    <p class="script">Noticias</p>
+    <h1>News &amp; Events</h1>
+  </div>
+</header>
+<section class="parchment section">
+  <div class="wrapper">
+    <div class="post-grid">
+      {% for post in collections.posts | reverse %}{% include "components/post-card.njk" %}{% endfor %}
+    </div>
+  </div>
+</section>

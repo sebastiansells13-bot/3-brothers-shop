@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-body;
+  color: $color-text;
+  background: $wood-dark;
+  line-height: 1.6;
+  font-size: 1.0625rem;
+  overflow-x: hidden;
+}
+
+a {
+  color: $color-accent;
+}
+
+.wrapper {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $gutter;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-heading;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+.script {
+  font-family: $font-script;
+  font-size: 1.6rem;
+  line-height: 1.1;
+  color: $marigold;
+  margin: 0 0 0.25rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: $marigold;
+  color: $ink;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+
+  &:focus {
+    left: 0.5rem;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.small {
+  font-size: 0.875rem;
+  color: $muted;
+}
+
+ul.plain {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Textures
+.wood {
+  background-color: $wood;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.18) 0 2px, transparent 2px 160px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 7px, rgba(0, 0, 0, 0.06) 7px 9px, transparent 9px 23px),
+    radial-gradient(ellipse at 30% 0%, rgba($marigold, 0.12), transparent 60%),
+    linear-gradient(180deg, $wood-light, $wood 40%, $wood-dark);
+  color: $parchment;
+}
+
+.parchment {
+  background-color: $parchment;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.55), transparent 55%),
+    radial-gradient(ellipse at 90% 90%, rgba($parchment-deep, 0.9), transparent 60%);
+}
+
+.parchment-card {
+  background: $parchment;
+  color: $ink;
+  border-radius: 6px;
+  box-shadow: 0 0 0 4px $parchment, 0 0 0 6px $wood-light, 0 18px 40px rgba(0, 0, 0, 0.45);
+  background-image: radial-gradient(ellipse at 50% 0%, #fff8e6, transparent 70%);
+}

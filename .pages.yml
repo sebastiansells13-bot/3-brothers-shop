@@ -1,0 +1,143 @@
+media:
+  input: src/_includes/img
+  output: /img
+
+content:
+  - name: business
+    label: Shop Info & Hours
+    type: file
+    path: src/_data/business.json
+    fields:
+      - { name: name, label: Business Name, type: string, required: true }
+      - { name: tagline, label: Tagline, type: string, description: One sentence used in search results. }
+      - { name: owner, label: Owner, type: string }
+      - { name: phone, label: Phone, type: string }
+      - { name: email, label: Email, type: string }
+      - { name: address, label: Street Address, type: string, description: Also used for the map and directions button. }
+      - { name: neighborhood, label: Neighborhood, type: string }
+      - name: hours
+        label: Hours
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.days}: {fields.time}"
+        fields:
+          - { name: days, label: Days, type: string, required: true, description: "e.g. Tuesday – Saturday" }
+          - { name: time, label: Hours, type: string, required: true, description: "e.g. 10am – 6pm, or Closed" }
+      - { name: hoursNote, label: Hours Note, type: string, description: Small print under the hours (holiday closures, etc.). Leave blank to hide. }
+      - name: social
+        label: Social Links
+        type: object
+        fields:
+          - { name: instagram, label: Instagram URL, type: string }
+          - { name: facebook, label: Facebook URL, type: string }
+
+  - name: home
+    label: Home Page
+    type: file
+    path: src/_data/home.json
+    fields:
+      - { name: announcement, label: Top Banner, type: string, description: The red bar at the very top of every page. Leave blank to hide it. }
+      - { name: eyebrow, label: Small Script Line, type: string }
+      - { name: headline, label: Ribbon Text, type: string }
+      - { name: intro, label: Intro Paragraph, type: text }
+      - name: heroImage
+        label: Hero Photo
+        type: image
+        description: Tall (portrait) photos look best.
+        options:
+          path: brand
+
+  - name: categories
+    label: What We Carry
+    type: file
+    path: src/_data/categories.json
+    fields:
+      - name: list
+        label: Categories
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.title}"
+        fields:
+          - { name: title, label: Category, type: string, required: true }
+          - { name: description, label: Description, type: rich-text, required: true }
+          - name: image
+            label: Photo
+            type: image
+            options:
+              path: categories
+
+  - name: gallery
+    label: Photo Gallery
+    type: file
+    path: src/_data/gallery.json
+    fields:
+      - name: list
+        label: Photos
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.caption}"
+        fields:
+          - name: image
+            label: Photo
+            type: image
+            required: true
+            options:
+              path: gallery
+          - { name: caption, label: Caption, type: string, required: true }
+
+  - name: about
+    label: About Page
+    type: file
+    path: src/_data/about.json
+    fields:
+      - { name: heading, label: Heading, type: string }
+      - { name: body, label: Story, type: rich-text }
+      - name: image
+        label: Photo
+        type: image
+        options:
+          path: brand
+
+  - name: posts
+    label: News & Events
+    type: collection
+    path: src/posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, date, tags]
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - name: description
+        label: Short Summary
+        type: string
+        required: true
+        description: Shown on the news cards and in search results. Max 160 characters.
+        options:
+          maxlength: 160
+      - name: date
+        label: Date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+          time: false
+      - name: tags
+        label: Type
+        type: select
+        default: announcement
+        options:
+          values: [announcement, event, new-arrivals]
+      - name: image
+        label: Image or Flyer
+        type: image
+        description: Square or portrait flyers from Instagram work great here.
+        options:
+          path: posts
+      - { name: body, label: Body, type: rich-text }

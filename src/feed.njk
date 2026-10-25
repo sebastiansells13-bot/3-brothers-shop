@@ -1,0 +1,24 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+{%- set metaTitle = business.name or metadata.title -%}
+{%- set absolutePostUrl = "https://example.com" -%}
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ metaTitle }}</title>
+  <subtitle>{{ business.tagline or metadata.description }}</subtitle>
+  <link href="{{ absolutePostUrl }}/feed.xml" rel="self"/>
+  <link href="{{ absolutePostUrl }}/"/>
+  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>{{ absolutePostUrl }}/</id>
+  {%- for post in collections.posts | reverse %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="{{ absolutePostUrl }}{{ post.url }}"/>
+    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <id>{{ absolutePostUrl }}{{ post.url }}</id>
+    <content type="html">{{ post.templateContent | escape }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

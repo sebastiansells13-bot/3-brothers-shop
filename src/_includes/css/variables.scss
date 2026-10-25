@@ -1,0 +1,29 @@
+// Pulled from the shop's Instagram graphics: dark weathered wood, parchment
+// signs, chile red lettering, marigold, turquoise and papel picado brights.
+$wood-dark: #2a170c;
+$wood: #4a2a16;
+$wood-light: #6e4224;
+$parchment: #f4e4c1;
+$parchment-deep: #e8cf9c;
+$ink: #2b1a10;
+$muted: #6b5240;
+$red: #b3261e;
+$red-dark: #861a14;
+$marigold: #f2a007;
+$turquoise: #1a9c9c;
+$pink: #e2337f;
+$green: #4c9a2a;
+$purple: #7a3fa0;
+
+$color-bg: $parchment;
+$color-text: $ink;
+$color-muted: $muted;
+$color-accent: $red;
+$color-border: rgba($ink, 0.18);
+
+$font-body: "Bitter", Georgia, serif;
+$font-heading: "Rye", "Bitter", Georgia, serif;
+$font-script: "Yellowtail", "Brush Script MT", cursive;
+
+$max-width: 72rem;
+$gutter: 1.25rem;

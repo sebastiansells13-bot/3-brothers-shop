@@ -1,0 +1,10 @@
+{
+  "list": [
+    { "image": "/img/gallery/catrinas.jpg", "caption": "Catrinas, ready for Día de los Muertos" },
+    { "image": "/img/gallery/painted-table.jpg", "caption": "Hand-painted cactus pottery" },
+    { "image": "/img/gallery/clay-figures.jpg", "caption": "Barro figurines with painted flowers" },
+    { "image": "/img/gallery/longhorn-display.jpg", "caption": "Longhorns at the farmers market" },
+    { "image": "/img/gallery/skull-table.jpg", "caption": "Painted calaveras" },
+    { "image": "/img/brand/storefront-sign.jpg", "caption": "Find our sign on Main Street" }
+  ]
+}

@@ -1,0 +1,34 @@
+---
+layout: layouts/page.njk
+title: What We Carry
+description: Día de los Muertos décor, longhorns, pottery, Mexican figurines and rustic furniture at 3 Brothers Shop in downtown Las Cruces.
+permalink: /shop/
+---
+<header class="page-hero">
+  <div class="wrapper">
+    <p class="script">Lo que tenemos</p>
+    <h1>What We Carry</h1>
+    <p>New pieces arrive all the time. Stop by the shop or follow us on Instagram to see the latest.</p>
+  </div>
+</header>
+<section class="parchment section">
+  <div class="wrapper">
+    <div class="category-grid">
+      {% for category in categories.list %}{% include "components/category-card.njk" %}{% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section news-strip">
+  <div class="wrapper">
+    <header class="section-head section-head--light">
+      <p class="script">Fotos</p>
+      <h2>Around the Shop</h2>
+    </header>
+    <div class="gallery">
+      {% for item in gallery.list %}
+      <figure><img src="{{ item.image }}" alt="{{ item.caption }}" loading="lazy"><figcaption>{{ item.caption }}</figcaption></figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% include "components/visit.njk" %}

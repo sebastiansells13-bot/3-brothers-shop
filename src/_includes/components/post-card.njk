@@ -1,0 +1,10 @@
+<article class="post-card">
+  <a href="{{ post.url }}">
+    {% if post.data.image %}<img src="{{ post.data.image }}" alt="" loading="lazy">{% endif %}
+    <div class="post-card__body">
+      <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      <h3>{{ post.data.title }}</h3>
+      <p>{{ post.data.description }}</p>
+    </div>
+  </a>
+</article>

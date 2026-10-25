@@ -1,0 +1,82 @@
+# AGENTS.md
+
+Instructions for AI coding assistants (Claude Code, Copilot, etc.) working in this repo.
+This file describes **this specific client site**, cloned from `client-site-starter`.
+Keep it up to date as the site diverges from the template.
+
+## This site
+
+- **Client**: 3 Brothers Shop LLC, owner Javier Macias. Rustic furniture, Mexican imports
+  and Día de los Muertos décor at 130 S Main St, downtown Las Cruces, NM.
+  Instagram: https://www.instagram.com/3brothersshopllc/
+- **Status**: prospect concept, served at https://sebastiansells13-bot.github.io/3-brothers-shop/
+  (`pathPrefix` is `/3-brothers-shop/`; Eleventy 3's base plugin prefixes root-relative
+  URLs in HTML automatically, so don't add the `url` filter in templates). Switch
+  `pathPrefix`, the sitemap hostname and `metadata.url` when the site moves to a custom domain.
+- **Design**: matches the Instagram graphics. Dark wood textures, parchment cards, chile
+  red, marigold and turquoise, papel picado banners. Fonts are Rye (headings), Yellowtail
+  (script accents) and Bitter (body). Tokens are in `src/_includes/css/variables.scss`.
+- **Content to confirm with the client**: store hours (`business.json` has none yet, so the
+  site says to call), email, Facebook, and the About story copy.
+- **Pages**: Home, What We Carry (`/shop/`), About, News (`/news/`, posts in `src/posts`), Visit.
+- **CMS-editable data**: `business.json`, `home.json`, `categories.json`, `gallery.json`,
+  `about.json`, plus the `posts` collection.
+
+## Commands
+
+- **Dev**: `npm start` (runs Sass + Eleventy with hot reload at http://localhost:8080/;
+  writes generated pages to `dev/`, serves images/CSS/fonts straight from `src/`, and
+  cleans `dev/` and `docs/` on startup and shutdown)
+- **Build**: `npm run build` (cleans output, compiles Sass, builds the Eleventy site with
+  original, unoptimized media into `docs/`)
+- **CI build**: `npm run build:ci` (GitHub Actions only — runs `npm run build`, then
+  optimizes referenced images with `scripts/optimize-media.mjs`)
+
+## Architecture
+
+- **SSG**: Eleventy (11ty) v3, static output, no server runtime
+- **Input**: `src/` — Markdown and Nunjucks (`.njk`) templates
+- **Dev output**: `dev/` (generated pages only; removed when `npm start` stops)
+- **Production output**: `docs/` (generated, not committed; built in CI, deployed via
+  GitHub Actions to GitHub Pages)
+- **Templates**: Nunjucks for layouts and pages; Markdown for blog posts
+- **Styling**: Sass, compiled from `src/_includes/css/index.scss` to a content-hashed,
+  cache-busted `index.<hash>.css` (see `assetPaths` in `.eleventy.js`)
+- **Content editing**: Pages CMS (`.pages.yml`) — the client edits structured content
+  (posts, services, team members, etc.) through a GitHub-authenticated web UI with no
+  code exposure. See `CMS-GUIDE.md` for the client-facing walkthrough.
+- **Data**: `src/_data/business.json` holds the client's name, tagline, contact info,
+  and social links — pulled from the intake worksheet. Reference it in templates rather
+  than hardcoding business details.
+- **Deployment**: pushes to `main` build the site and deploy to GitHub Pages;
+  pull requests run the build to catch errors but do not deploy.
+
+## Code style
+
+- 2-space indentation, LF line endings, trim trailing whitespace, UTF-8 (per `.editorconfig`)
+- Template formats: `.md`, `.njk`, `.html`
+- Dates: UTC, Luxon filters `readableDate` (display) / `htmlDateString` (machine-readable)
+- Passthrough assets live under `src/_includes/{img,favicons}`; don't reference images
+  from anywhere else or the build won't copy them
+- Don't hardcode content that a non-technical client might want to change — put it in
+  `src/_data/` or a Pages CMS collection instead
+
+## Adding a new page
+
+1. Create `src/<page-name>.njk` with front matter `layout: layouts/page.njk`
+2. Add it to `src/_data/navigation.json` if it belongs in the nav
+3. If the client should be able to edit its content, add a matching entry to `.pages.yml`
+
+## Adding a new content type to the CMS
+
+1. Add a `collection` block to `.pages.yml` (see the `posts` entry as a template)
+2. Create the corresponding Nunjucks layout under `src/_includes/layouts/`
+3. Add a listing/index template if the content type needs its own index page
+4. Document the new field set in `CMS-GUIDE.md` in plain language for the client
+
+## What NOT to do
+
+- Don't commit `dev/` or `docs/` — both are build output
+- Don't add a runtime backend/server — this is a static site by design
+- Don't remove the `assetPaths` content-hashing — it's what makes the CDN cache safe
+  to set far-future/immutable

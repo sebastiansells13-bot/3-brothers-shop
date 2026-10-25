@@ -1,0 +1,34 @@
+{
+  "list": [
+    {
+      "title": "Día de los Muertos",
+      "description": "Catrinas, painted calaveras, sugar-skull décor and ofrenda pieces, all year round.",
+      "image": "/img/gallery/skull-table.jpg"
+    },
+    {
+      "title": "Longhorns & Western Décor",
+      "description": "Painted and natural longhorn skulls, rustic metalwork and ranch-style accents for the wall or the patio.",
+      "image": "/img/gallery/longhorn-display.jpg"
+    },
+    {
+      "title": "Pottery & Talavera",
+      "description": "Hand-painted clay pots, cactus planters and colorful Mexican ceramics.",
+      "image": "/img/gallery/painted-table.jpg"
+    },
+    {
+      "title": "Mexican Figurines",
+      "description": "Barro figurines and folk-art pieces painted with flowers and bright color.",
+      "image": "/img/gallery/clay-figures.jpg"
+    },
+    {
+      "title": "Rustic Furniture",
+      "description": "Wood chairs, chests, cabinets and statement pieces with real character.",
+      "image": "/img/brand/logo-wheel.jpg"
+    },
+    {
+      "title": "Seasonal Finds",
+      "description": "Fall décor, holiday pieces and new imports that change with the season.",
+      "image": "/img/posts/farmers-market-flyer.jpg"
+    }
+  ]
+}
