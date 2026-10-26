@@ -6,6 +6,8 @@ rustic furniture, Mexican imports and Día de los Muertos décor at 130 S Main S
 **Live concept:** https://sebastiansells13-bot.github.io/3-brothers-shop/
 **Edit content:** https://app.pagescms.org/edit/sebastiansells13-bot/3-brothers-shop (see [CMS-GUIDE.md](CMS-GUIDE.md))
 
+English/Spanish toggle in the header (see [AGENTS.md](AGENTS.md)).
+
 Built from `client-site-starter`: Eleventy (11ty) + Nunjucks, Pages CMS, and GitHub
 Actions deploys to GitHub Pages.
 

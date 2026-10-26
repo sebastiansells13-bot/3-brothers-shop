@@ -1,7 +1,7 @@
 [
-  { "text": "Home", "url": "/" },
-  { "text": "What We Carry", "url": "/shop/" },
-  { "text": "About", "url": "/about/" },
-  { "text": "News", "url": "/news/" },
-  { "text": "Visit", "url": "/visit/" }
+  { "text": "Home", "url": "/", "i18nKey": "nav.home" },
+  { "text": "What We Carry", "url": "/shop/", "i18nKey": "nav.shop" },
+  { "text": "About", "url": "/about/", "i18nKey": "nav.about" },
+  { "text": "News", "url": "/news/", "i18nKey": "nav.news" },
+  { "text": "Visit", "url": "/visit/", "i18nKey": "nav.visit" }
 ]

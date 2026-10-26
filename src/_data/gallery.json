@@ -1,10 +1,10 @@
 {
   "list": [
-    { "image": "/img/gallery/catrinas.jpg", "caption": "Catrinas, ready for Día de los Muertos" },
-    { "image": "/img/gallery/painted-table.jpg", "caption": "Hand-painted cactus pottery" },
-    { "image": "/img/gallery/clay-figures.jpg", "caption": "Barro figurines with painted flowers" },
-    { "image": "/img/gallery/longhorn-display.jpg", "caption": "Longhorns at the farmers market" },
-    { "image": "/img/gallery/skull-table.jpg", "caption": "Painted calaveras" },
-    { "image": "/img/brand/storefront-sign.jpg", "caption": "Find our sign on Main Street" }
+    { "image": "/img/gallery/catrinas.jpg", "caption": "Catrinas, ready for Día de los Muertos", "captionEs": "Catrinas listas para el Día de los Muertos" },
+    { "image": "/img/gallery/painted-table.jpg", "caption": "Hand-painted cactus pottery", "captionEs": "Cerámica de nopal pintada a mano" },
+    { "image": "/img/gallery/clay-figures.jpg", "caption": "Barro figurines with painted flowers", "captionEs": "Figuras de barro con flores pintadas" },
+    { "image": "/img/gallery/longhorn-display.jpg", "caption": "Longhorns at the farmers market", "captionEs": "Cuernos de res en el mercado" },
+    { "image": "/img/gallery/skull-table.jpg", "caption": "Painted calaveras", "captionEs": "Calaveras pintadas" },
+    { "image": "/img/brand/storefront-sign.jpg", "caption": "Find our sign on Main Street", "captionEs": "Busque nuestro letrero en la calle Main" }
   ]
 }

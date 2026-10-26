@@ -18,6 +18,13 @@ You can update the site yourself, with no code.
 - **News & Events**: announcements, farmers market days, new arrivals. Each post has a
   title, short summary, date, type, an image or flyer, and body text.
 
+## Spanish versions
+
+The site has an **EN / ES** switch in the header. Almost every field has a matching
+**(Spanish)** field right below it. Fill it in and visitors who choose Spanish see it.
+Leave it blank and they see the English text instead. If you change the English text,
+please update the Spanish too so the two say the same thing.
+
 ## 3. Making a change
 
 1. Click the section you want to edit (for example "News & Events")

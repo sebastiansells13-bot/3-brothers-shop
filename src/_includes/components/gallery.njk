@@ -1,0 +1,6 @@
+{% from "macros/bilingual.njk" import bilingual %}
+<div class="gallery">
+  {% for item in gallery.list %}
+  <figure><img src="{{ item.image }}" alt="{{ item.caption }}"{% if item.captionEs %} data-alt-es="{{ item.captionEs }}"{% endif %} loading="lazy"><figcaption>{{ bilingual(item.caption, item.captionEs) }}</figcaption></figure>
+  {% endfor %}
+</div>

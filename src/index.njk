@@ -2,21 +2,22 @@
 layout: layouts/page.njk
 title: Home
 ---
+{% from "macros/bilingual.njk" import bilingual %}
 <section class="hero wood">
   <div class="wrapper hero__grid">
     <div class="hero__copy">
-      <p class="script hero__eyebrow">{{ home.eyebrow }}</p>
+      <p class="script hero__eyebrow">{{ bilingual(home.eyebrow, home.eyebrowEs) }}</p>
       <h1 class="hero__title"><span>3 Brothers</span> Shop <small>LLC</small></h1>
-      <p class="ribbon">{{ home.headline }}</p>
-      <p class="hero__intro">{{ home.intro }}</p>
+      <p class="ribbon">{{ bilingual(home.headline, home.headlineEs) }}</p>
+      <p class="hero__intro">{{ bilingual(home.intro, home.introEs) }}</p>
       <p class="btn-row">
-        <a class="btn" href="/visit/">Visit us · 130 S Main St</a>
-        <a class="btn btn--ghost-light" href="/shop/">What we carry</a>
+        <a class="btn" href="/visit/" data-i18n="home.ctaVisit">Visit us · 130 S Main St</a>
+        <a class="btn btn--ghost-light" href="/shop/" data-i18n="home.ctaShop">What we carry</a>
       </p>
     </div>
     <div class="hero__art">
-      <figure class="framed framed--tilt"><img src="{{ home.heroImage }}" alt="The hand-painted 3 Brothers Shop sign on the sidewalk" width="480" height="640"></figure>
-      <img class="hero__badge" src="/img/brand/logo.jpg" alt="3 Brothers Shop LLC logo" width="150" height="150">
+      <figure class="framed framed--tilt"><img src="{{ home.heroImage }}" alt="The hand-painted 3 Brothers Shop sign on the sidewalk" data-i18n-attr="alt:home.heroAlt" width="480" height="640"></figure>
+      <img class="hero__badge" src="/img/brand/logo.jpg" alt="3 Brothers Shop LLC logo" data-i18n-attr="alt:brand.logoAlt" width="150" height="150">
     </div>
   </div>
 </section>
@@ -25,23 +26,23 @@ title: Home
   <div class="wrapper">
     <header class="section-head">
       <p class="script">Lo que tenemos</p>
-      <h2>What We Carry</h2>
+      <h2 data-i18n="home.carryTitle">What We Carry</h2>
     </header>
     <div class="category-grid">
       {% for category in categories.list %}{% include "components/category-card.njk" %}{% endfor %}
     </div>
-    <p class="center"><a class="btn" href="/shop/">See the whole shop</a></p>
+    <p class="center"><a class="btn" href="/shop/" data-i18n="home.seeAll">See the whole shop</a></p>
   </div>
 </section>
 
 <section class="feature">
   <div class="wrapper feature__grid">
-    <figure class="framed framed--tilt-left"><img src="/img/gallery/catrinas.jpg" alt="Two tall catrina figures" loading="lazy" width="480" height="640"></figure>
+    <figure class="framed framed--tilt-left"><img src="/img/gallery/catrinas.jpg" alt="Two tall catrina figures" data-i18n-attr="alt:home.featureAlt" loading="lazy" width="480" height="640"></figure>
     <div>
       <p class="script">Todo el año</p>
-      <h2>Día de los Muertos, all year round</h2>
-      <p>Catrinas, painted calaveras, marigold accents and everything for your ofrenda, plus the fall décor that sold out at the farmers market.</p>
-      <a class="btn btn--light" href="/news/">See what's new</a>
+      <h2 data-i18n="home.featureTitle">Día de los Muertos, all year round</h2>
+      <p data-i18n="home.featureBody">Catrinas, painted calaveras, marigold accents and everything for your ofrenda, plus the fall décor that sold out at the farmers market.</p>
+      <a class="btn btn--light" href="/news/" data-i18n="home.featureCta">See what's new</a>
     </div>
   </div>
 </section>
@@ -50,13 +51,9 @@ title: Home
   <div class="wrapper">
     <header class="section-head">
       <p class="script">Síguenos en Instagram y TikTok</p>
-      <h2>Around the Shop</h2>
+      <h2 data-i18n="home.galleryTitle">Around the Shop</h2>
     </header>
-    <div class="gallery">
-      {% for item in gallery.list %}
-      <figure><img src="{{ item.image }}" alt="{{ item.caption }}" loading="lazy"><figcaption>{{ item.caption }}</figcaption></figure>
-      {% endfor %}
-    </div>
+    {% include "components/gallery.njk" %}
     <p class="btn-row btn-row--center">
       <a class="btn btn--ghost" href="{{ business.social.instagram }}" rel="noopener" target="_blank">Instagram @3brothersshopllc</a>
       {% if business.social.tiktok %}<a class="btn btn--ghost" href="{{ business.social.tiktok }}" rel="noopener" target="_blank">TikTok @3.brothers.llc</a>{% endif %}
@@ -68,7 +65,7 @@ title: Home
   <div class="wrapper">
     <header class="section-head section-head--light">
       <p class="script">Noticias</p>
-      <h2>News &amp; Events</h2>
+      <h2 data-i18n="home.newsTitle">News &amp; Events</h2>
     </header>
     <div class="post-grid">
       {% for post in collections.posts | reverse | head(3) %}{% include "components/post-card.njk" %}{% endfor %}

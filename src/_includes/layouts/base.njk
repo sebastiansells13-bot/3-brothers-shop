@@ -3,7 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if title and title != "Home" %}{{ title }} · {% endif %}{{ business.name or metadata.title }}</title>
+  <title{% if titleKey %} data-i18n-title="{{ titleKey }}"{% elif titleEs %} data-i18n-title-es="{{ titleEs }}"{% endif %}>{% if title and title != "Home" %}{{ title }} · {% endif %}{{ business.name or metadata.title }}</title>
+  {# Hide the page until js/i18n.js has applied a saved Spanish choice, so English never flashes. #}
+  <script>try { if (localStorage.getItem("lang") === "es") document.documentElement.classList.add("i18n-pending"); } catch (e) {}</script>
+  <style>.i18n-pending body { visibility: hidden; }</style>
   <meta name="description" content="{{ description or metadata.description }}">
   <meta property="og:title" content="{{ title or business.name }}">
   <meta property="og:description" content="{{ description or metadata.description }}">
@@ -33,12 +36,14 @@
   {% if collections %}<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ business.name }}">{% endif %}
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main" data-i18n="skip.toContent">Skip to content</a>
   {% include "components/header.njk" %}
   <main id="main">
     {{ content | safe }}
   </main>
   {% include "components/footer.njk" %}
+  <script type="application/json" id="i18n-data">{{ i18n | dump | safe }}</script>
+  <script>{% include "js/i18n.js" %}</script>
   <script>
     document.querySelector(".nav-toggle")?.addEventListener("click", (e) => {
       const open = document.body.classList.toggle("nav-open");

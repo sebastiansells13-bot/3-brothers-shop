@@ -1,7 +1,11 @@
 {
   "eyebrow": "Now open on Main Street",
+  "eyebrowEs": "Ya abrimos en la calle Main",
   "headline": "Rustic Furniture & Imports",
+  "headlineEs": "Muebles Rústicos e Importaciones",
   "intro": "Hand-painted pottery, catrinas, longhorns, Mexican figurines and one-of-a-kind rustic pieces. Come browse the new shop in downtown Las Cruces.",
+  "introEs": "Cerámica pintada a mano, catrinas, cuernos de res, figuras mexicanas y piezas rústicas únicas. Venga a conocer la nueva tienda en el centro de Las Cruces.",
   "heroImage": "/img/brand/storefront-sign.jpg",
-  "announcement": "We're open at our new location: 130 S Main St, Downtown Las Cruces"
+  "announcement": "We're open at our new location: 130 S Main St, Downtown Las Cruces",
+  "announcementEs": "Ya estamos abiertos en nuestro nuevo local: 130 S Main St, centro de Las Cruces"
 }

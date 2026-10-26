@@ -1,26 +1,27 @@
+{% from "macros/bilingual.njk" import bilingual %}
 <section class="visit wood" id="visit">
   <div class="wrapper visit__grid">
     <div class="visit__card parchment-card">
       <p class="script">Ven a visitarnos</p>
-      <h2>Visit the Shop</h2>
-      <p class="visit__address"><strong>{{ business.address }}</strong><br>{{ business.neighborhood }}</p>
+      <h2 data-i18n="visit.title">Visit the Shop</h2>
+      <p class="visit__address"><strong>{{ business.address }}</strong><br>{{ bilingual(business.neighborhood, business.neighborhoodEs) }}</p>
       {% if business.hours.length %}
       <ul class="hours">
-        {% for row in business.hours %}<li><span>{{ row.days }}</span><span>{{ row.time }}</span></li>{% endfor %}
+        {% for row in business.hours %}<li><span>{{ bilingual(row.days, row.daysEs) }}</span><span>{{ bilingual(row.time, row.timeEs) }}</span></li>{% endfor %}
       </ul>
       {% endif %}
-      {% if business.hoursNote %}<p class="visit__note">{{ business.hoursNote }}</p>{% endif %}
+      {% if business.hoursNote %}<p class="visit__note">{{ bilingual(business.hoursNote, business.hoursNoteEs) }}</p>{% endif %}
       <p class="btn-row">
-        <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination={{ business.address | mapQuery }}">Get directions</a>
-        <a class="btn btn--ghost" href="{{ business.phone | telHref }}">Call {{ business.phone }}</a>
+        <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination={{ business.address | mapQuery }}" data-i18n="visit.directions">Get directions</a>
+        <a class="btn btn--ghost" href="{{ business.phone | telHref }}" data-i18n="visit.call" data-i18n-vars="{{ { phone: business.phone } | dump }}">Call {{ business.phone }}</a>
       </p>
       <div class="visit__social">
-        <p class="small">Follow along</p>
+        <p class="small" data-i18n="visit.follow">Follow along</p>
         {% set socialClass = "social--dark" %}{% include "components/social-links.njk" %}
       </div>
     </div>
     <div class="visit__map framed">
-      <iframe title="Map to {{ business.name }}" src="https://www.google.com/maps?q={{ business.address | mapQuery }}&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe title="Map to {{ business.name }}" data-i18n-attr="title:visit.mapTitle" data-i18n-vars="{{ { name: business.name } | dump }}" src="https://www.google.com/maps?q={{ business.address | mapQuery }}&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
