@@ -4,7 +4,7 @@ layout: layouts/base.njk
 <article class="post">
   <header class="page-hero page-hero--short">
     <div class="wrapper">
-      <p class="script">{{ tags | reject("equalto", "posts") | first | capitalize }}</p>
+      <p class="script">{{ tags | reject("equalto", "posts") | first | replace("-", " ") | capitalize }}</p>
       <h1>{{ title }}</h1>
       <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
     </div>

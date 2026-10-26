@@ -113,3 +113,17 @@ ul.plain {
   box-shadow: 0 0 0 4px $parchment, 0 0 0 6px $wood-light, 0 18px 40px rgba(0, 0, 0, 0.45);
   background-image: radial-gradient(ellipse at 50% 0%, #fff8e6, transparent 70%);
 }
+
+:focus-visible {
+  outline: 3px solid $marigold;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

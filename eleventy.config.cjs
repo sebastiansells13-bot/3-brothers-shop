@@ -45,9 +45,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("telHref", (phone) => `tel:+1${String(phone).replace(/\D/g, "").slice(-10)}`);
   eleventyConfig.addFilter("mapQuery", (address) => encodeURIComponent(address));
+  eleventyConfig.addFilter("compactValues", (obj) => Object.values(obj || {}).filter(Boolean));
 
   eleventyConfig.addFilter("readableDate", (dateObj) =>
-    DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("dd LLL yyyy")
+    DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("LLLL d, yyyy")
   );
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string

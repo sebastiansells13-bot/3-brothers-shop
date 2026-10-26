@@ -4,14 +4,20 @@
       <p class="script">Ven a visitarnos</p>
       <h2>Visit the Shop</h2>
       <p class="visit__address"><strong>{{ business.address }}</strong><br>{{ business.neighborhood }}</p>
+      {% if business.hours.length %}
       <ul class="hours">
         {% for row in business.hours %}<li><span>{{ row.days }}</span><span>{{ row.time }}</span></li>{% endfor %}
       </ul>
-      {% if business.hoursNote %}<p class="small">{{ business.hoursNote }}</p>{% endif %}
+      {% endif %}
+      {% if business.hoursNote %}<p class="visit__note">{{ business.hoursNote }}</p>{% endif %}
       <p class="btn-row">
         <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination={{ business.address | mapQuery }}">Get directions</a>
         <a class="btn btn--ghost" href="{{ business.phone | telHref }}">Call {{ business.phone }}</a>
       </p>
+      <div class="visit__social">
+        <p class="small">Follow along</p>
+        {% set socialClass = "social--dark" %}{% include "components/social-links.njk" %}
+      </div>
     </div>
     <div class="visit__map framed">
       <iframe title="Map to {{ business.name }}" src="https://www.google.com/maps?q={{ business.address | mapQuery }}&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

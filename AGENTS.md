@@ -8,7 +8,7 @@ Keep it up to date as the site diverges from the template.
 
 - **Client**: 3 Brothers Shop LLC, owner Javier Macias. Rustic furniture, Mexican imports
   and Día de los Muertos décor at 130 S Main St, downtown Las Cruces, NM.
-  Instagram: https://www.instagram.com/3brothersshopllc/
+  Instagram: https://www.instagram.com/3brothersshopllc/ · TikTok: https://www.tiktok.com/@3.brothers.llc
 - **Status**: prospect concept, served at https://sebastiansells13-bot.github.io/3-brothers-shop/
   (`pathPrefix` is `/3-brothers-shop/`; Eleventy 3's base plugin prefixes root-relative
   URLs in HTML automatically, so don't add the `url` filter in templates). Switch

@@ -648,9 +648,8 @@
 
   img {
     width: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
-    object-position: top;
   }
 
   &__body {
@@ -862,5 +861,101 @@
     padding-bottom: 1.5rem;
     font-size: 0.85rem;
     color: rgba($parchment, 0.6);
+  }
+}
+
+// Social links
+.social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: $parchment;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.35rem 0.8rem 0.35rem 0.4rem;
+    border: 1.5px solid rgba($parchment, 0.35);
+    border-radius: 999px;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+
+    &:hover {
+      background: $marigold;
+      border-color: $marigold;
+      color: $ink;
+    }
+  }
+
+  svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    padding: 0.2rem;
+    border-radius: 50%;
+    background: rgba($parchment, 0.12);
+  }
+
+  &--stacked {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &--dark a {
+    color: $red;
+    border-color: rgba($red, 0.35);
+
+    svg {
+      background: rgba($red, 0.1);
+    }
+
+    &:hover {
+      background: $red;
+      border-color: $red;
+      color: $parchment;
+    }
+  }
+}
+
+.btn-row--center {
+  justify-content: center;
+}
+
+.visit__note {
+  margin: 0.25rem 0 0;
+  padding: 0.7rem 0.9rem;
+  border-left: 4px solid $marigold;
+  background: rgba($marigold, 0.12);
+  font-weight: 600;
+}
+
+.visit__social {
+  margin-top: 1.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px dashed $color-border;
+
+  .small {
+    margin: 0 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 560px) {
+  .announcement {
+    font-size: 0.8rem;
+    padding: 0.4rem 0;
+  }
+
+  .hero .btn-row .btn {
+    flex: 1 1 100%;
+    text-align: center;
   }
 }

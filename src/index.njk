@@ -49,7 +49,7 @@ title: Home
 <section class="parchment section">
   <div class="wrapper">
     <header class="section-head">
-      <p class="script">Straight from our Instagram</p>
+      <p class="script">Síguenos en Instagram y TikTok</p>
       <h2>Around the Shop</h2>
     </header>
     <div class="gallery">
@@ -57,7 +57,10 @@ title: Home
       <figure><img src="{{ item.image }}" alt="{{ item.caption }}" loading="lazy"><figcaption>{{ item.caption }}</figcaption></figure>
       {% endfor %}
     </div>
-    <p class="center"><a class="btn btn--ghost" href="{{ business.social.instagram }}">Follow @3brothersshopllc</a></p>
+    <p class="btn-row btn-row--center">
+      <a class="btn btn--ghost" href="{{ business.social.instagram }}" rel="noopener" target="_blank">Instagram @3brothersshopllc</a>
+      {% if business.social.tiktok %}<a class="btn btn--ghost" href="{{ business.social.tiktok }}" rel="noopener" target="_blank">TikTok @3.brothers.llc</a>{% endif %}
+    </p>
   </div>
 </section>
 
