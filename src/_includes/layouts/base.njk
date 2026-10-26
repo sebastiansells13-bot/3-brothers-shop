@@ -10,11 +10,26 @@
   <meta property="og:image" content="{{ metadata.url }}{{ image or '/img/posts/open-tomorrow.jpg' }}">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#2a170c">
-  <link rel="icon" href="/img/brand/logo.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32.png">
+  <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+  <link rel="canonical" href="{{ metadata.url }}{{ page.url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;0,700;1,400&family=Rye&family=Yellowtail&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ assetPaths.stylesheet }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": {{ business.name | dump | safe }},
+    "description": {{ business.tagline | dump | safe }},
+    "url": "{{ metadata.url }}/",
+    "image": "{{ metadata.url }}/img/brand/logo.jpg",
+    "telephone": {{ business.phone | dump | safe }},
+    "address": {{ business.address | dump | safe }},
+    "sameAs": {{ business.social | compactValues | dump | safe }}
+  }
+  </script>
   {% if collections %}<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ business.name }}">{% endif %}
 </head>
 <body>

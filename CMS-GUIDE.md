@@ -9,7 +9,7 @@ You can update the site yourself, with no code.
 
 ## 2. What you can edit
 
-- **Shop Info & Hours**: phone, email, address, hours and social links. These show up
+- **Shop Info & Hours**: phone, email, address, hours and social links (Instagram, TikTok, Facebook). These show up
   in the footer, on the Visit page and on the map.
 - **Home Page**: the red banner at the top, the hero photo, and the intro text.
 - **What We Carry**: the product categories, each with a photo and a short description.

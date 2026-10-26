@@ -30,6 +30,7 @@ content:
         type: object
         fields:
           - { name: instagram, label: Instagram URL, type: string }
+          - { name: tiktok, label: TikTok URL, type: string }
           - { name: facebook, label: Facebook URL, type: string }
 
   - name: home

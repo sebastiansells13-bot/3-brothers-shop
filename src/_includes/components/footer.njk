@@ -12,17 +12,16 @@
     </div>
     <div>
       <h2>Hours</h2>
+      {% if business.hours.length %}
       <ul class="hours">
         {% for row in business.hours %}<li><span>{{ row.days }}</span><span>{{ row.time }}</span></li>{% endfor %}
       </ul>
-      {% if not business.hours.length %}<p>{{ business.hoursNote }}</p>{% endif %}
+      {% else %}<p>{{ business.hoursNote }}</p>{% endif %}
     </div>
     <div>
       <h2>Follow</h2>
-      <ul class="plain">
-        {% if business.social.instagram %}<li><a href="{{ business.social.instagram }}">Instagram @3brothersshopllc</a></li>{% endif %}
-        {% if business.social.facebook %}<li><a href="{{ business.social.facebook }}">Facebook</a></li>{% endif %}
-      </ul>
+      <p>New arrivals and market days, posted first on social.</p>
+      {% set socialClass = "social--stacked" %}{% include "components/social-links.njk" %}
     </div>
   </div>
   <div class="wrapper site-footer__legal">&copy; {% year %} {{ business.name }} · Owner: {{ business.owner }}</div>
