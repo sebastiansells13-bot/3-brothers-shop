@@ -3,4 +3,14 @@ permalink: /sitemap.xml
 layout: null
 eleventyExcludeFromCollections: true
 ---
-{% sitemap collections.all %}
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for entry in collections.all %}{% if not entry.data.noindex %}
+  <url>
+    <loc>{{ metadata.url }}{{ entry.url }}</loc>
+    {%- if entry.data.tags and "posts" in entry.data.tags %}
+    <lastmod>{{ entry.date | htmlDateString }}</lastmod>
+    {%- endif %}
+  </url>
+{%- endif %}{% endfor %}
+</urlset>

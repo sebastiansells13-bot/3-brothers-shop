@@ -13,7 +13,7 @@ layout: layouts/base.njk
   </header>
   <div class="parchment">
     <div class="wrapper post__layout">
-      {% if image %}<figure class="framed post__image"><img src="{{ image }}" alt=""></figure>{% endif %}
+      {% if image %}<figure class="framed post__image"><img src="{{ image }}" alt="{{ title }}"{% if titleEs %} data-alt-es="{{ titleEs }}"{% endif %}></figure>{% endif %}
       <div class="post__body prose">
         {{ bilingual(content, bodyEs | markdown if bodyEs else "", "div", true) }}
         <p><a class="btn btn--ghost" href="/news/" data-i18n="news.all">&larr; All news</a></p>
