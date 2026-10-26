@@ -1,14 +1,15 @@
 ---
 layout: layouts/page.njk
 title: Visit
+titleKey: nav.visit
 description: Find 3 Brothers Shop LLC at 130 S Main St in downtown Las Cruces, NM. Hours, directions and phone.
 permalink: /visit/
 ---
 <header class="page-hero page-hero--short">
   <div class="wrapper">
-    <p class="script">Downtown Las Cruces</p>
-    <h1>Visit &amp; Contact</h1>
-    <p>Questions about a piece, or looking for something special? Call {{ business.owner }} at <a href="{{ business.phone | telHref }}">{{ business.phone }}</a>.</p>
+    <p class="script">Centro de Las Cruces</p>
+    <h1 data-i18n="visit.pageTitle">Visit &amp; Contact</h1>
+    <p><span data-i18n="visit.introPre" data-i18n-vars="{{ { owner: business.owner } | dump }}">Questions about a piece, or looking for something special? Call {{ business.owner }} at</span> <a href="{{ business.phone | telHref }}">{{ business.phone }}</a>.</p>
   </div>
 </header>
 {% include "components/visit.njk" %}

@@ -1,0 +1,10 @@
+{#
+  CMS text with an optional Spanish sibling (e.g. home.intro / home.introEs).
+  With no Spanish, renders the English alone so both languages show it.
+  With Spanish, renders both tagged data-i18n-lang and lets js/i18n.js pick.
+  `tag` wraps each version (default "span"); `isHtml` skips escaping for
+  rich-text CMS fields.
+#}
+{% macro bilingual(en, es, tag="span", isHtml=false) -%}
+{% if es %}<{{ tag }} data-i18n-lang="en">{{ (en | safe) if isHtml else en }}</{{ tag }}><{{ tag }} data-i18n-lang="es" hidden>{{ (es | safe) if isHtml else es }}</{{ tag }}>{% else %}{{ (en | safe) if isHtml else en }}{% endif %}
+{%- endmacro %}

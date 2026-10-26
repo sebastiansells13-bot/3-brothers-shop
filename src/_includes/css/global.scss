@@ -27,6 +27,12 @@ a {
   padding: 0 $gutter;
 }
 
+// The language toggle hides the other language with `hidden`; make sure no
+// component display rule can override it.
+[hidden] {
+  display: none !important;
+}
+
 img {
   max-width: 100%;
   height: auto;

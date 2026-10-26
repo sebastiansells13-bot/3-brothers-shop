@@ -19,6 +19,20 @@ Keep it up to date as the site diverges from the template.
 - **Content to confirm with the client**: store hours (`business.json` has none yet, so the
   site says to call), email, Facebook, and the About story copy.
 - **Pages**: Home, What We Carry (`/shop/`), About, News (`/news/`, posts in `src/posts`), Visit.
+- **English/Spanish toggle**: EN/ES buttons in the header, same markup contract as
+  julia-ketsaa-remax. `src/_includes/js/i18n.js` (inlined at the end of `base.njk`) reads the
+  `#i18n-data` dictionary island built from `src/_data/i18n.json` and applies `data-i18n`,
+  `data-i18n-attr` (+ `data-i18n-vars`), `data-i18n-date`, `data-i18n-title`/`-title-es`,
+  `data-alt-es` and `data-i18n-lang`; the choice persists per visitor in `localStorage`, and
+  an inline `<head>` script hides the page until it's applied so English never flashes.
+  Template text goes in the dictionary. CMS text never does: every CMS field has an optional
+  `*Es` sibling (`introEs`, `titleEs`, `descriptionEs`, `captionEs`, `bodyEs`, `hoursNoteEs`,
+  post front matter `titleEs`/`descriptionEs`/`bodyEs`…) rendered with
+  `{{ bilingual(en, es) }}` from `macros/bilingual.njk`, and a blank one shows the English in
+  both languages. The script-font accent lines ("Lo que tenemos", "Todo el año"…) are
+  Spanish in both languages on purpose. Never put `data-i18n` on an element with child
+  elements (it replaces `textContent`), and keep the header fitting in both languages at
+  961px (the menu collapses at 960px).
 - **CMS-editable data**: `business.json`, `home.json`, `categories.json`, `gallery.json`,
   `about.json`, plus the `posts` collection.
 

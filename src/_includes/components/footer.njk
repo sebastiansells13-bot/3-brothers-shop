@@ -1,28 +1,29 @@
+{% from "macros/bilingual.njk" import bilingual %}
 <footer class="site-footer">
   {% include "components/papel-picado.njk" %}
   <div class="wrapper site-footer__grid">
     <div>
-      <img class="site-footer__logo" src="/img/brand/logo.jpg" alt="3 Brothers Shop LLC logo" width="96" height="96" loading="lazy">
+      <img class="site-footer__logo" src="/img/brand/logo.jpg" alt="3 Brothers Shop LLC logo" data-i18n-attr="alt:brand.logoAlt" width="96" height="96" loading="lazy">
       <p class="script">¡Gracias por apoyar lo local!</p>
     </div>
     <div>
-      <h2>Visit</h2>
-      <p>{{ business.address }}<br>{{ business.neighborhood }}</p>
+      <h2 data-i18n="footer.visit">Visit</h2>
+      <p>{{ business.address }}<br>{{ bilingual(business.neighborhood, business.neighborhoodEs) }}</p>
       <p><a href="{{ business.phone | telHref }}">{{ business.phone }}</a>{% if business.email %}<br><a href="mailto:{{ business.email }}">{{ business.email }}</a>{% endif %}</p>
     </div>
     <div>
-      <h2>Hours</h2>
+      <h2 data-i18n="footer.hours">Hours</h2>
       {% if business.hours.length %}
       <ul class="hours">
-        {% for row in business.hours %}<li><span>{{ row.days }}</span><span>{{ row.time }}</span></li>{% endfor %}
+        {% for row in business.hours %}<li><span>{{ bilingual(row.days, row.daysEs) }}</span><span>{{ bilingual(row.time, row.timeEs) }}</span></li>{% endfor %}
       </ul>
-      {% else %}<p>{{ business.hoursNote }}</p>{% endif %}
+      {% else %}<p>{{ bilingual(business.hoursNote, business.hoursNoteEs) }}</p>{% endif %}
     </div>
     <div>
-      <h2>Follow</h2>
-      <p>New arrivals and market days, posted first on social.</p>
+      <h2 data-i18n="footer.follow">Follow</h2>
+      <p data-i18n="footer.followNote">New arrivals and market days, posted first on social.</p>
       {% set socialClass = "social--stacked" %}{% include "components/social-links.njk" %}
     </div>
   </div>
-  <div class="wrapper site-footer__legal">&copy; {% year %} {{ business.name }} · Owner: {{ business.owner }}</div>
+  <div class="wrapper site-footer__legal">&copy; {% year %} {{ business.name }} · <span data-i18n="footer.owner">Owner</span>: {{ business.owner }}</div>
 </footer>

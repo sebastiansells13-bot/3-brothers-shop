@@ -1,5 +1,6 @@
+{% from "macros/bilingual.njk" import bilingual %}
 {% if home.announcement %}
-<div class="announcement"><div class="wrapper">{{ home.announcement }}</div></div>
+<div class="announcement"><div class="wrapper">{{ bilingual(home.announcement, home.announcementEs) }}</div></div>
 {% endif %}
 <header class="site-header">
   <div class="wrapper">
@@ -7,20 +8,24 @@
       <img class="brand__logo" src="/img/brand/logo.jpg" alt="" width="56" height="56">
       <span class="brand__text">
         <span class="brand__name">3 Brothers Shop</span>
-        <span class="brand__sub">Rustic Furniture &amp; Imports</span>
+        <span class="brand__sub" data-i18n="brand.sub">Rustic Furniture &amp; Imports</span>
       </span>
     </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      <span class="nav-toggle__bars" aria-hidden="true"></span><span class="visually-hidden">Menu</span>
-    </button>
-    <nav id="site-nav" class="site-nav" aria-label="Main">
+    <nav id="site-nav" class="site-nav" aria-label="Main" data-i18n-attr="aria-label:nav.mainLabel">
       <ul>
         {% for item in navigation %}
         {% set active = page.url == item.url or (item.url != "/" and page.url.startsWith(item.url)) %}
-        <li><a href="{{ item.url }}"{% if active %} class="is-active" aria-current="page"{% endif %}>{{ item.text }}</a></li>
+        <li><a href="{{ item.url }}"{% if active %} class="is-active" aria-current="page"{% endif %} data-i18n="{{ item.i18nKey }}">{{ item.text }}</a></li>
         {% endfor %}
       </ul>
     </nav>
+    <div class="lang-toggle" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.languageLabel">
+      <button type="button" class="lang-toggle__btn" data-lang-toggle="en" aria-pressed="true" lang="en">EN</button>
+      <button type="button" class="lang-toggle__btn" data-lang-toggle="es" aria-pressed="false" lang="es">ES</button>
+    </div>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle__bars" aria-hidden="true"></span><span class="visually-hidden" data-i18n="nav.menu">Menu</span>
+    </button>
   </div>
 </header>
 {% include "components/papel-picado.njk" %}

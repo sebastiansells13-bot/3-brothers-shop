@@ -15,6 +15,7 @@ content:
       - { name: email, label: Email, type: string }
       - { name: address, label: Street Address, type: string, description: Also used for the map and directions button. }
       - { name: neighborhood, label: Neighborhood, type: string }
+      - { name: neighborhoodEs, label: Neighborhood (Spanish), type: string, description: "Optional Spanish version, shown when a visitor switches the site to Spanish. Leave blank to show the English in both languages." }
       - name: hours
         label: Hours
         type: object
@@ -24,7 +25,10 @@ content:
         fields:
           - { name: days, label: Days, type: string, required: true, description: "e.g. Tuesday – Saturday" }
           - { name: time, label: Hours, type: string, required: true, description: "e.g. 10am – 6pm, or Closed" }
-      - { name: hoursNote, label: Hours Note, type: string, description: Small print under the hours (holiday closures, etc.). Leave blank to hide. }
+          - { name: daysEs, label: Days (Spanish), type: string, description: "e.g. Martes – Sábado" }
+          - { name: timeEs, label: Hours (Spanish), type: string, description: "e.g. Cerrado" }
+      - { name: hoursNote, label: Hours Note, type: string, description: "Small print under the hours (holiday closures, etc.). Leave blank to hide." }
+      - { name: hoursNoteEs, label: Hours Note (Spanish), type: string, description: "Optional Spanish version, shown when a visitor switches the site to Spanish. Leave blank to show the English in both languages." }
       - name: social
         label: Social Links
         type: object
@@ -39,9 +43,13 @@ content:
     path: src/_data/home.json
     fields:
       - { name: announcement, label: Top Banner, type: string, description: The red bar at the very top of every page. Leave blank to hide it. }
+      - { name: announcementEs, label: Top Banner (Spanish), type: string, description: "Optional Spanish version, shown when a visitor switches the site to Spanish. Leave blank to show the English in both languages." }
       - { name: eyebrow, label: Small Script Line, type: string }
+      - { name: eyebrowEs, label: Small Script Line (Spanish), type: string, description: "Optional Spanish version, shown when a visitor switches the site to Spanish. Leave blank to show the English in both languages." }
       - { name: headline, label: Ribbon Text, type: string }
+      - { name: headlineEs, label: Ribbon Text (Spanish), type: string, description: "Optional Spanish version, shown when a visitor switches the site to Spanish. Leave blank to show the English in both languages." }
       - { name: intro, label: Intro Paragraph, type: text }
+      - { name: introEs, label: Intro Paragraph (Spanish), type: text, description: "Optional Spanish version, shown when a visitor switches the site to Spanish. Leave blank to show the English in both languages." }
       - name: heroImage
         label: Hero Photo
         type: image
@@ -62,7 +70,9 @@ content:
             summary: "{fields.title}"
         fields:
           - { name: title, label: Category, type: string, required: true }
+          - { name: titleEs, label: Category (Spanish), type: string, description: "Optional Spanish version, shown when a visitor switches the site to Spanish. Leave blank to show the English in both languages." }
           - { name: description, label: Description, type: rich-text, required: true }
+          - { name: descriptionEs, label: Description (Spanish), type: rich-text, description: "Optional Spanish version, shown when a visitor switches the site to Spanish. Leave blank to show the English in both languages." }
           - name: image
             label: Photo
             type: image
@@ -88,6 +98,7 @@ content:
             options:
               path: gallery
           - { name: caption, label: Caption, type: string, required: true }
+          - { name: captionEs, label: Caption (Spanish), type: string, description: "Optional Spanish version, shown when a visitor switches the site to Spanish. Leave blank to show the English in both languages." }
 
   - name: about
     label: About Page
@@ -95,7 +106,9 @@ content:
     path: src/_data/about.json
     fields:
       - { name: heading, label: Heading, type: string }
+      - { name: headingEs, label: Heading (Spanish), type: string, description: "Optional Spanish version, shown when a visitor switches the site to Spanish. Leave blank to show the English in both languages." }
       - { name: body, label: Story, type: rich-text }
+      - { name: bodyEs, label: Story (Spanish), type: rich-text, description: "Optional Spanish version, shown when a visitor switches the site to Spanish. Leave blank to show the English in both languages. If you edit the English story, please update this too." }
       - name: image
         label: Photo
         type: image
@@ -115,11 +128,18 @@ content:
         order: desc
     fields:
       - { name: title, label: Title, type: string, required: true }
+      - { name: titleEs, label: Title (Spanish), type: string, description: "Optional Spanish version, shown when a visitor switches the site to Spanish. Leave blank to show the English in both languages." }
       - name: description
         label: Short Summary
         type: string
         required: true
         description: Shown on the news cards and in search results. Max 160 characters.
+        options:
+          maxlength: 160
+      - name: descriptionEs
+        label: Short Summary (Spanish)
+        type: string
+        description: "Optional Spanish version, shown when a visitor switches the site to Spanish. Leave blank to show the English in both languages."
         options:
           maxlength: 160
       - name: date
@@ -142,3 +162,4 @@ content:
         options:
           path: posts
       - { name: body, label: Body, type: rich-text }
+      - { name: bodyEs, label: Body (Spanish), type: rich-text, description: "Optional Spanish version, shown when a visitor switches the site to Spanish. Leave blank to show the English in both languages. If you edit the English body, please update this too." }

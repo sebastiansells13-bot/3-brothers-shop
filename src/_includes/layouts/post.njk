@@ -1,20 +1,22 @@
 ---
 layout: layouts/base.njk
 ---
+{% from "macros/bilingual.njk" import bilingual %}
+{% set tag = tags | reject("equalto", "posts") | first %}
 <article class="post">
   <header class="page-hero page-hero--short">
     <div class="wrapper">
-      <p class="script">{{ tags | reject("equalto", "posts") | first | replace("-", " ") | capitalize }}</p>
-      <h1>{{ title }}</h1>
-      <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+      <p class="script" data-i18n="tag.{{ tag }}">{{ tag | replace("-", " ") | capitalize }}</p>
+      <h1>{{ bilingual(title, titleEs) }}</h1>
+      <time datetime="{{ date | htmlDateString }}" data-i18n-date>{{ date | readableDate }}</time>
     </div>
   </header>
   <div class="parchment">
     <div class="wrapper post__layout">
       {% if image %}<figure class="framed post__image"><img src="{{ image }}" alt=""></figure>{% endif %}
       <div class="post__body prose">
-        {{ content | safe }}
-        <p><a class="btn btn--ghost" href="/news/">&larr; All news</a></p>
+        {{ bilingual(content, bodyEs | markdown if bodyEs else "", "div", true) }}
+        <p><a class="btn btn--ghost" href="/news/" data-i18n="news.all">&larr; All news</a></p>
       </div>
     </div>
   </div>

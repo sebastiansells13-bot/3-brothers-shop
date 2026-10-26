@@ -2,32 +2,44 @@
   "list": [
     {
       "title": "Día de los Muertos",
+      "titleEs": "Día de los Muertos",
       "description": "Catrinas, painted calaveras, sugar-skull décor and ofrenda pieces, all year round.",
+      "descriptionEs": "Catrinas, calaveras pintadas, decoración de calaveritas y piezas para su ofrenda, todo el año.",
       "image": "/img/gallery/skull-table.jpg"
     },
     {
       "title": "Longhorns & Western Décor",
+      "titleEs": "Cuernos y Decoración Vaquera",
       "description": "Painted and natural longhorn skulls, rustic metalwork and ranch-style accents for the wall or the patio.",
+      "descriptionEs": "Cráneos de res pintados y naturales, herrería rústica y detalles de rancho para la pared o el patio.",
       "image": "/img/gallery/longhorn-display.jpg"
     },
     {
       "title": "Pottery & Talavera",
+      "titleEs": "Cerámica y Talavera",
       "description": "Hand-painted clay pots, cactus planters and colorful Mexican ceramics.",
+      "descriptionEs": "Macetas de barro pintadas a mano, macetas de nopal y cerámica mexicana llena de color.",
       "image": "/img/gallery/painted-table.jpg"
     },
     {
       "title": "Mexican Figurines",
+      "titleEs": "Figuras Mexicanas",
       "description": "Barro figurines and folk-art pieces painted with flowers and bright color.",
+      "descriptionEs": "Figuras de barro y arte popular pintadas con flores y colores vivos.",
       "image": "/img/gallery/clay-figures.jpg"
     },
     {
       "title": "Rustic Furniture",
+      "titleEs": "Muebles Rústicos",
       "description": "Wood chairs, chests, cabinets and statement pieces with real character.",
+      "descriptionEs": "Sillas, baúles, gabinetes de madera y piezas con mucho carácter.",
       "image": "/img/brand/logo-wheel.jpg"
     },
     {
       "title": "Seasonal Finds",
+      "titleEs": "De Temporada",
       "description": "Fall décor, holiday pieces and new imports that change with the season.",
+      "descriptionEs": "Decoración de otoño, piezas navideñas e importaciones nuevas que cambian con cada temporada.",
       "image": "/img/posts/farmers-market-flyer.jpg"
     }
   ]

@@ -1,0 +1,69 @@
+{
+  "skip.toContent": { "en": "Skip to content", "es": "Saltar al contenido" },
+
+  "nav.home": { "en": "Home", "es": "Inicio" },
+  "nav.shop": { "en": "What We Carry", "es": "Productos" },
+  "nav.about": { "en": "About", "es": "Nosotros" },
+  "nav.news": { "en": "News", "es": "Noticias" },
+  "nav.visit": { "en": "Visit", "es": "Visítenos" },
+  "nav.menu": { "en": "Menu", "es": "Menú" },
+  "nav.mainLabel": { "en": "Main", "es": "Principal" },
+  "nav.languageLabel": { "en": "Language", "es": "Idioma" },
+
+  "brand.sub": { "en": "Rustic Furniture & Imports", "es": "Muebles Rústicos e Importaciones" },
+  "brand.logoAlt": { "en": "3 Brothers Shop LLC logo", "es": "Logo de 3 Brothers Shop LLC" },
+
+  "social.on": { "en": "{name} on {network}", "es": "{name} en {network}" },
+
+  "home.ctaVisit": { "en": "Visit us · 130 S Main St", "es": "Visítenos · 130 S Main St" },
+  "home.ctaShop": { "en": "What we carry", "es": "Nuestros productos" },
+  "home.heroAlt": { "en": "The hand-painted 3 Brothers Shop sign on the sidewalk", "es": "El letrero pintado a mano de 3 Brothers Shop en la banqueta" },
+  "home.carryTitle": { "en": "What We Carry", "es": "Nuestros Productos" },
+  "home.seeAll": { "en": "See the whole shop", "es": "Ver toda la tienda" },
+  "home.featureAlt": { "en": "Two tall catrina figures", "es": "Dos catrinas altas" },
+  "home.featureTitle": { "en": "Día de los Muertos, all year round", "es": "Día de los Muertos, los 365 días del año" },
+  "home.featureBody": { "en": "Catrinas, painted calaveras, marigold accents and everything for your ofrenda, plus the fall décor that sold out at the farmers market.", "es": "Catrinas, calaveras pintadas, detalles de cempasúchil y todo para su ofrenda, además de la decoración de otoño que se agotó en el mercado." },
+  "home.featureCta": { "en": "See what's new", "es": "Ver novedades" },
+  "home.galleryTitle": { "en": "Around the Shop", "es": "Un Vistazo a la Tienda" },
+  "home.newsTitle": { "en": "News & Events", "es": "Novedades y Eventos" },
+
+  "shop.title": { "en": "What We Carry", "es": "Nuestros Productos" },
+  "shop.intro": { "en": "New pieces arrive all the time. Stop by the shop or follow us on Instagram to see the latest.", "es": "Siempre llegan piezas nuevas. Visite la tienda o síganos en Instagram para ver lo más reciente." },
+
+  "about.title": { "en": "About the Shop", "es": "Sobre la Tienda" },
+  "about.imageAlt": { "en": "3 Brothers Shop decorations and antiques logo", "es": "Logo de decoraciones y antigüedades de 3 Brothers Shop" },
+  "about.owner": { "en": "owner", "es": "dueño" },
+  "about.timelineTitle": { "en": "From the Farmers Market to Main Street", "es": "Del Mercado a la Calle Main" },
+  "about.step1": { "en": "At the Farmers & Crafts Market", "es": "En el Farmers & Crafts Market" },
+  "about.step1Alt": { "en": "We're at the Farmers Market flyer", "es": "Volante: estamos en el Farmers Market" },
+  "about.step2": { "en": "A new location announced", "es": "Anunciamos un nuevo local" },
+  "about.step2Alt": { "en": "Coming soon, new location flyer", "es": "Volante: muy pronto, nuevo local" },
+  "about.step3": { "en": "Open at 130 S Main St", "es": "Abiertos en 130 S Main St" },
+  "about.step3Alt": { "en": "Open tomorrow at 130 S Main St flyer", "es": "Volante: abrimos mañana en 130 S Main St" },
+
+  "news.title": { "en": "News & Events", "es": "Novedades y Eventos" },
+  "news.all": { "en": "← All news", "es": "← Todas las noticias" },
+  "tag.announcement": { "en": "Announcement", "es": "Anuncio" },
+  "tag.event": { "en": "Event", "es": "Evento" },
+  "tag.new-arrivals": { "en": "New arrivals", "es": "Novedades" },
+
+  "visit.pageTitle": { "en": "Visit & Contact", "es": "Visítenos y Contáctenos" },
+  "visit.introPre": { "en": "Questions about a piece, or looking for something special? Call {owner} at", "es": "¿Preguntas sobre alguna pieza o busca algo especial? Llame a {owner} al" },
+  "visit.title": { "en": "Visit the Shop", "es": "Visite la Tienda" },
+  "visit.directions": { "en": "Get directions", "es": "Cómo llegar" },
+  "visit.call": { "en": "Call {phone}", "es": "Llamar al {phone}" },
+  "visit.follow": { "en": "Follow along", "es": "Síganos" },
+  "visit.mapTitle": { "en": "Map to {name}", "es": "Mapa a {name}" },
+
+  "footer.visit": { "en": "Visit", "es": "Visítenos" },
+  "footer.hours": { "en": "Hours", "es": "Horario" },
+  "footer.follow": { "en": "Follow", "es": "Síganos" },
+  "footer.followNote": { "en": "New arrivals and market days, posted first on social.", "es": "Novedades y días de mercado, primero en nuestras redes." },
+  "footer.owner": { "en": "Owner", "es": "Dueño" },
+
+  "notFound.title": { "en": "Page not found", "es": "Página no encontrada" },
+  "notFound.pre": { "en": "That page wandered off.", "es": "Esa página se nos perdió." },
+  "notFound.home": { "en": "Head back home", "es": "Regrese al inicio" },
+  "notFound.or": { "en": "or", "es": "o" },
+  "notFound.visit": { "en": "come visit the shop", "es": "visite la tienda" }
+}
