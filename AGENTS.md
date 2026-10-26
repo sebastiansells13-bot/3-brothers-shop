@@ -33,6 +33,18 @@ Keep it up to date as the site diverges from the template.
   Spanish in both languages on purpose. Never put `data-i18n` on an element with child
   elements (it replaces `textContent`), and keep the header fitting in both languages at
   961px (the menu collapses at 960px).
+- **SEO**: `base.njk` builds the `<title>` as `seoTitle` (keyword-first, front matter) or
+  `title`, then " · 3 Brothers Shop LLC"; pair a `seoTitle` with a `titleKey` (`seo.*` in
+  `i18n.json`) so the Spanish tab title matches. It also emits the canonical URL, Open Graph and
+  Twitter tags (`og:type` article on posts), and JSON-LD from the `structuredData` filter in
+  `eleventy.config.cjs` (HomeGoodsStore + WebSite on every page, BreadcrumbList on inner pages,
+  BlogPosting on posts; the address is parsed out of `business.address`). Keep meta
+  descriptions under 160 characters. `noindex: true` in front matter adds a robots noindex
+  tag and drops the page from `sitemap.xml` (the 404 page uses it). `sitemap.xml.njk` and
+  `robots.txt.njk` build absolute URLs from `metadata.url`. While the site lives under
+  `/3-brothers-shop/` on github.io, crawlers ignore its `robots.txt` (they only read one at a
+  domain root), so submit the sitemap in Search Console instead; on a custom domain it works
+  as is.
 - **CMS-editable data**: `business.json`, `home.json`, `categories.json`, `gallery.json`,
   `about.json`, plus the `posts` collection.
 

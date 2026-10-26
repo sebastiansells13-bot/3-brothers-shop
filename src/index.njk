@@ -1,6 +1,8 @@
 ---
 layout: layouts/page.njk
 title: Home
+seoTitle: Rustic Furniture & Imports in Las Cruces, NM
+titleKey: seo.home
 ---
 {% from "macros/bilingual.njk" import bilingual %}
 <section class="hero wood">
@@ -16,7 +18,7 @@ title: Home
       </p>
     </div>
     <div class="hero__art">
-      <figure class="framed framed--tilt"><img src="{{ home.heroImage }}" alt="The hand-painted 3 Brothers Shop sign on the sidewalk" data-i18n-attr="alt:home.heroAlt" width="480" height="640"></figure>
+      <figure class="framed framed--tilt"><img src="{{ home.heroImage }}" alt="The hand-painted 3 Brothers Shop sign on the sidewalk" data-i18n-attr="alt:home.heroAlt" width="480" height="640" fetchpriority="high"></figure>
       <img class="hero__badge" src="/img/brand/logo.jpg" alt="3 Brothers Shop LLC logo" data-i18n-attr="alt:brand.logoAlt" width="150" height="150">
     </div>
   </div>

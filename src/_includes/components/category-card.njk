@@ -1,6 +1,6 @@
 {% from "macros/bilingual.njk" import bilingual %}
 <article class="category-card">
-  {% if category.image %}<img src="{{ category.image }}" alt="" loading="lazy">{% endif %}
+  {% if category.image %}<img src="{{ category.image }}" alt="{{ category.title }}"{% if category.titleEs %} data-alt-es="{{ category.titleEs }}"{% endif %} loading="lazy">{% endif %}
   <div class="category-card__body">
     <h3>{{ bilingual(category.title, category.titleEs) }}</h3>
     <div class="category-card__text">{{ bilingual(category.description, category.descriptionEs, "div", true) }}</div>

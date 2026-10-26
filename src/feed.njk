@@ -3,7 +3,7 @@ permalink: /feed.xml
 eleventyExcludeFromCollections: true
 ---
 {%- set metaTitle = business.name or metadata.title -%}
-{%- set absolutePostUrl = "https://example.com" -%}
+{%- set absolutePostUrl = metadata.url -%}
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>{{ metaTitle }}</title>
@@ -12,12 +12,14 @@ eleventyExcludeFromCollections: true
   <link href="{{ absolutePostUrl }}/"/>
   <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
   <id>{{ absolutePostUrl }}/</id>
+  <author><name>{{ metaTitle }}</name></author>
   {%- for post in collections.posts | reverse %}
   <entry>
     <title>{{ post.data.title }}</title>
     <link href="{{ absolutePostUrl }}{{ post.url }}"/>
     <updated>{{ post.date | dateToRfc3339 }}</updated>
     <id>{{ absolutePostUrl }}{{ post.url }}</id>
+    <summary>{{ post.data.description }}</summary>
     <content type="html">{{ post.templateContent | escape }}</content>
   </entry>
   {%- endfor %}

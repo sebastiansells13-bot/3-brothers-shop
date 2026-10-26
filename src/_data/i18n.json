@@ -1,4 +1,9 @@
 {
+  "seo.home": { "en": "Rustic Furniture & Imports in Las Cruces, NM", "es": "Muebles Rústicos e Importaciones en Las Cruces, NM" },
+  "seo.shop": { "en": "Día de los Muertos Décor, Pottery & Longhorns", "es": "Decoración de Día de los Muertos, Cerámica y Cuernos" },
+  "seo.about": { "en": "Our Story: Farmers Market to Main Street", "es": "Nuestra Historia: Del Mercado a la Calle Main" },
+  "seo.visit": { "en": "Visit Us at 130 S Main St, Las Cruces", "es": "Visítenos en 130 S Main St, Las Cruces" },
+
   "skip.toContent": { "en": "Skip to content", "es": "Saltar al contenido" },
 
   "nav.home": { "en": "Home", "es": "Inicio" },
