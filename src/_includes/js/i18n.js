@@ -1,4 +1,5 @@
-// English/Spanish toggle, inlined at the end of base.njk. Same markup
+// English/Spanish toggle, loaded with `defer` from base.njk (the #i18n-data
+// island it reads sits at the end of <body>). Same markup
 // contract as julia-ketsaa-remax's toggle, trimmed to what this site uses.
 // Client-side only (no /es/ URLs); the choice persists per visitor.
 //
