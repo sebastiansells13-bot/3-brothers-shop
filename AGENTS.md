@@ -45,6 +45,16 @@ Keep it up to date as the site diverges from the template.
   `/3-brothers-shop/` on github.io, crawlers ignore its `robots.txt` (they only read one at a
   domain root), so submit the sitemap in Search Console instead; on a custom domain it works
   as is.
+- **Security**: production pages carry a Content-Security-Policy `<meta>` (built in
+  `eleventy.config.cjs`; GitHub Pages can't send headers). It allows scripts only from this
+  site plus the one inline boot script, by hash, so **don't add inline `<script>`s or
+  `on*=`/`style=` attributes**: put JS in `src/_includes/js/` and register it in
+  `assetFiles`/`assetPaths` like `nav.js`. A new third party (fonts, embeds, analytics) needs
+  its origin added to the policy. Inline JSON data blocks must go through `jsonScript` (it
+  escapes `<`, `>` and `&` so CMS text can't close the tag), and any CMS-provided URL in an
+  `href` through `safeUrl`. CMS rich text is rendered unescaped by design, since only
+  repo collaborators can edit it. Actions in the workflow are pinned to commit SHAs;
+  Dependabot (`.github/dependabot.yml`) opens weekly update PRs for them and for npm.
 - **CMS-editable data**: `business.json`, `home.json`, `categories.json`, `gallery.json`,
   `about.json`, plus the `posts` collection.
 

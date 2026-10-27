@@ -8,11 +8,12 @@
 <html lang="{{ metadata.language }}">
 <head>
   <meta charset="utf-8">
+  {% if isProduction %}<meta http-equiv="Content-Security-Policy" content="{{ contentSecurityPolicy }}">{% endif %}
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title{% if titleKey %} data-i18n-title="{{ titleKey }}"{% elif titleEs %} data-i18n-title-es="{{ titleEs }}"{% endif %}>{{ pageTitle }}</title>
   {# Hide the page until js/i18n.js has applied a saved Spanish choice, so English never flashes. #}
-  <script>try { if (localStorage.getItem("lang") === "es") document.documentElement.classList.add("i18n-pending"); } catch (e) {}</script>
-  <style>.i18n-pending body { visibility: hidden; }</style>
+  <script>{{ i18nBootScript | safe }}</script>
   <meta name="description" content="{{ pageDescription }}">
   {% if noindex %}<meta name="robots" content="noindex">{% else %}<link rel="canonical" href="{{ pageUrl }}">{% endif %}
   <meta property="og:site_name" content="{{ siteName }}">
@@ -38,6 +39,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;0,700;1,400&family=Rye&family=Yellowtail&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ assetPaths.stylesheet }}">
   <script type="application/ld+json">{{ page | structuredData(business, metadata, { title: title, description: description, image: image, tags: tags }) | safe }}</script>
+  <script src="{{ assetPaths.i18nScript }}" defer></script>
+  <script src="{{ assetPaths.navScript }}" defer></script>
   {% if collections %}<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ business.name }}">{% endif %}
 </head>
 <body>
@@ -47,13 +50,6 @@
     {{ content | safe }}
   </main>
   {% include "components/footer.njk" %}
-  <script type="application/json" id="i18n-data">{{ i18n | dump | safe }}</script>
-  <script>{% include "js/i18n.js" %}</script>
-  <script>
-    document.querySelector(".nav-toggle")?.addEventListener("click", (e) => {
-      const open = document.body.classList.toggle("nav-open");
-      e.currentTarget.setAttribute("aria-expanded", open);
-    });
-  </script>
+  <script type="application/json" id="i18n-data">{{ i18n | jsonScript | safe }}</script>
 </body>
 </html>

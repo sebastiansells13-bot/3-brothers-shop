@@ -27,6 +27,19 @@ a {
   padding: 0 $gutter;
 }
 
+// Set by the inline boot script in base.njk while js/i18n.js applies a saved
+// Spanish choice; the animation reveals the page anyway if that script fails.
+.i18n-pending body {
+  visibility: hidden;
+  animation: i18n-reveal 0s 1.5s forwards;
+}
+
+@keyframes i18n-reveal {
+  to {
+    visibility: visible;
+  }
+}
+
 // The language toggle hides the other language with `hidden`; make sure no
 // component display rule can override it.
 [hidden] {

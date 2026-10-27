@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="visit__map framed">
-      <iframe title="Map to {{ business.name }}" data-i18n-attr="title:visit.mapTitle" data-i18n-vars="{{ { name: business.name } | dump }}" src="https://www.google.com/maps?q={{ business.address | mapQuery }}&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe title="Map to {{ business.name }}" data-i18n-attr="title:visit.mapTitle" data-i18n-vars="{{ { name: business.name } | dump }}" src="https://www.google.com/maps?q={{ business.address | mapQuery }}&output=embed" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </div>
   </div>
 </section>

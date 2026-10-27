@@ -57,8 +57,8 @@ titleKey: seo.home
     </header>
     {% include "components/gallery.njk" %}
     <p class="btn-row btn-row--center">
-      <a class="btn btn--ghost" href="{{ business.social.instagram }}" rel="noopener" target="_blank">Instagram @3brothersshopllc</a>
-      {% if business.social.tiktok %}<a class="btn btn--ghost" href="{{ business.social.tiktok }}" rel="noopener" target="_blank">TikTok @3.brothers.llc</a>{% endif %}
+      <a class="btn btn--ghost" href="{{ business.social.instagram | safeUrl }}" rel="noopener noreferrer" target="_blank">Instagram @3brothersshopllc</a>
+      {% if business.social.tiktok %}<a class="btn btn--ghost" href="{{ business.social.tiktok | safeUrl }}" rel="noopener noreferrer" target="_blank">TikTok @3.brothers.llc</a>{% endif %}
     </p>
   </div>
 </section>

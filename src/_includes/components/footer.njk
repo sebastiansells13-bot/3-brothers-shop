@@ -9,7 +9,7 @@
     <div>
       <h2 data-i18n="footer.visit">Visit</h2>
       <p>{{ business.address }}<br>{{ bilingual(business.neighborhood, business.neighborhoodEs) }}</p>
-      <p><a href="{{ business.phone | telHref }}">{{ business.phone }}</a>{% if business.email %}<br><a href="mailto:{{ business.email }}">{{ business.email }}</a>{% endif %}</p>
+      <p><a href="{{ business.phone | telHref }}">{{ business.phone }}</a>{% if business.email %}<br><a href="{{ ('mailto:' + business.email) | safeUrl }}">{{ business.email }}</a>{% endif %}</p>
     </div>
     <div>
       <h2 data-i18n="footer.hours">Hours</h2>

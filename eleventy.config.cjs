@@ -18,10 +18,48 @@ function contentHash(filePath) {
 
 const assetFiles = {
   stylesheet: "src/_includes/css/index.css",
+  i18nScript: "src/_includes/js/i18n.js",
+  navScript: "src/_includes/js/nav.js",
 };
 const assetPaths = {
   stylesheet: `/assets/css/index.${contentHash(assetFiles.stylesheet)}.css`,
+  i18nScript: `/assets/js/i18n.${contentHash(assetFiles.i18nScript)}.js`,
+  navScript: `/assets/js/nav.${contentHash(assetFiles.navScript)}.js`,
 };
+
+// The one inline script: it must run before first paint so a saved Spanish
+// choice never flashes English. The Content-Security-Policy allows it by hash
+// instead of 'unsafe-inline'; everything else loads from /assets/js/.
+const i18nBootScript =
+  'try{if(localStorage.getItem("lang")==="es")document.documentElement.classList.add("i18n-pending")}catch(e){}';
+const i18nBootHash = `sha256-${createHash("sha256").update(i18nBootScript).digest("base64")}`;
+
+// GitHub Pages can't send response headers, so the policy ships as a <meta>
+// tag (which can't express frame-ancestors). Google Fonts and the Maps embed
+// are the only third parties.
+const contentSecurityPolicy = [
+  "default-src 'none'",
+  `script-src 'self' '${i18nBootHash}'`,
+  "style-src 'self' https://fonts.googleapis.com",
+  "font-src https://fonts.gstatic.com",
+  "img-src 'self' data:",
+  "frame-src https://www.google.com https://maps.google.com",
+  "connect-src 'self'",
+  "base-uri 'self'",
+  "form-action 'none'",
+  "object-src 'none'",
+  "upgrade-insecure-requests",
+].join("; ");
+
+// JSON for an inline <script> data block: escape the characters that could
+// close the tag or start HTML, so CMS text can never break out of it.
+const jsonForScript = (value, indent) =>
+  JSON.stringify(value, null, indent)
+    .replace(/</g, "\\u003c")
+    .replace(/>/g, "\\u003e")
+    .replace(/&/g, "\\u0026")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -32,6 +70,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.watchIgnores.add("**/.DS_Store");
   eleventyConfig.setDataDeepMerge(true);
   eleventyConfig.addGlobalData("assetPaths", assetPaths);
+  eleventyConfig.addGlobalData("isProduction", isProduction);
+  eleventyConfig.addGlobalData("i18nBootScript", i18nBootScript);
+  eleventyConfig.addGlobalData("contentSecurityPolicy", contentSecurityPolicy);
+  eleventyConfig.addFilter("jsonScript", (value) => jsonForScript(value));
+
+  // Only web, mail and phone links from the CMS make it into an href, so a
+  // pasted javascript: or data: URL can't run script.
+  eleventyConfig.addFilter("safeUrl", (url) => (/^(https?:|mailto:|tel:|\/)/i.test(String(url || "").trim()) ? url : "#"));
 
   eleventyConfig.addLayoutAlias("page", "layouts/page.njk");
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
@@ -77,7 +123,7 @@ module.exports = function (eleventyConfig) {
         hasMap: `https://www.google.com/maps?q=${encodeURIComponent(business.address)}`,
         founder: { "@type": "Person", name: business.owner },
         knowsLanguage: ["en", "es"],
-        sameAs: Object.values(business.social || {}).filter(Boolean),
+        sameAs: Object.values(business.social || {}).filter((url) => /^https?:\/\//i.test(url || "")),
       },
       {
         "@type": "WebSite",
@@ -114,7 +160,7 @@ module.exports = function (eleventyConfig) {
       });
     }
 
-    return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2);
+    return jsonForScript({ "@context": "https://schema.org", "@graph": graph }, 2);
   });
 
   eleventyConfig.addFilter("readableDate", (dateObj) =>
@@ -147,6 +193,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/_includes/img": "img" });
   eleventyConfig.addPassthroughCopy({
     [assetFiles.stylesheet]: assetPaths.stylesheet.slice(1),
+  });
+  eleventyConfig.addPassthroughCopy({
+    [assetFiles.i18nScript]: assetPaths.i18nScript.slice(1),
+    [assetFiles.navScript]: assetPaths.navScript.slice(1),
   });
   eleventyConfig.addPassthroughCopy({ "src/_includes/favicons": "favicons" });
   eleventyConfig.addPassthroughCopy(".nojekyll");
