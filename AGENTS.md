@@ -20,7 +20,7 @@ Keep it up to date as the site diverges from the template.
   site says to call), email, Facebook, and the About story copy.
 - **Pages**: Home, What We Carry (`/shop/`), About, News (`/news/`, posts in `src/posts`), Visit.
 - **English/Spanish toggle**: EN/ES buttons in the header, same markup contract as
-  julia-ketsaa-remax. `src/_includes/js/i18n.js` (inlined at the end of `base.njk`) reads the
+  julia-ketsaa-remax. `src/_includes/js/i18n.js` (loaded with `defer` from `base.njk`) reads the
   `#i18n-data` dictionary island built from `src/_data/i18n.json` and applies `data-i18n`,
   `data-i18n-attr` (+ `data-i18n-vars`), `data-i18n-date`, `data-i18n-title`/`-title-es`,
   `data-alt-es` and `data-i18n-lang`; the choice persists per visitor in `localStorage`, and
