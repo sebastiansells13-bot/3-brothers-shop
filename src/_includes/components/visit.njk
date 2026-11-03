@@ -14,6 +14,7 @@
       <p class="btn-row">
         <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination={{ business.address | mapQuery }}" data-i18n="visit.directions">Get directions</a>
         <a class="btn btn--ghost" href="{{ business.phone | telHref }}" data-i18n="visit.call" data-i18n-vars="{{ { phone: business.phone } | dump }}">Call {{ business.phone }}</a>
+        {% if business.email %}<a class="btn btn--ghost" href="{{ ('mailto:' + business.email) | safeUrl }}" data-i18n="visit.email">Email us</a>{% endif %}
       </p>
       <div class="visit__social">
         <p class="small" data-i18n="visit.follow">Follow along</p>

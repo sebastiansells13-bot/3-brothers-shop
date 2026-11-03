@@ -57,6 +57,7 @@
   "visit.title": { "en": "Visit the Shop", "es": "Visite la Tienda" },
   "visit.directions": { "en": "Get directions", "es": "Cómo llegar" },
   "visit.call": { "en": "Call {phone}", "es": "Llamar al {phone}" },
+  "visit.email": { "en": "Email us", "es": "Escríbanos" },
   "visit.follow": { "en": "Follow along", "es": "Síganos" },
   "visit.mapTitle": { "en": "Map to {name}", "es": "Mapa a {name}" },
 
