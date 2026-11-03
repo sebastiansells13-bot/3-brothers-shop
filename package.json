@@ -22,7 +22,7 @@
     "luxon": "^3.5.0",
     "markdown-it": "^15.0.3",
     "markdown-it-anchor": "^9.2.0",
-    "rimraf": "^6.0.1",
+    "rimraf": "^6.1.4",
     "sass": "^1.81.0",
     "sharp": "^0.35.5"
   }
