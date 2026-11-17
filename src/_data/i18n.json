@@ -33,6 +33,7 @@
   "home.newsTitle": { "en": "News & Events", "es": "Novedades y Eventos" },
 
   "shop.title": { "en": "What We Carry", "es": "Nuestros Productos" },
+  "shop.categoriesHeading": { "en": "Shop by category", "es": "Productos por categoría" },
   "shop.intro": { "en": "New pieces arrive all the time. Stop by the shop or follow us on Instagram to see the latest.", "es": "Siempre llegan piezas nuevas. Visite la tienda o síganos en Instagram para ver lo más reciente." },
 
   "about.title": { "en": "About the Shop", "es": "Sobre la Tienda" },
@@ -47,6 +48,7 @@
   "about.step3Alt": { "en": "Open tomorrow at 130 S Main St flyer", "es": "Volante: abrimos mañana en 130 S Main St" },
 
   "news.title": { "en": "News & Events", "es": "Novedades y Eventos" },
+  "news.postsHeading": { "en": "All posts", "es": "Todas las publicaciones" },
   "news.all": { "en": "← All news", "es": "← Todas las noticias" },
   "tag.announcement": { "en": "Announcement", "es": "Anuncio" },
   "tag.event": { "en": "Event", "es": "Evento" },
