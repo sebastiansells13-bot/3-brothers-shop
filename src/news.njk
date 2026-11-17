@@ -13,6 +13,7 @@ permalink: /news/
 </header>
 <section class="parchment section">
   <div class="wrapper">
+    <h2 class="visually-hidden" data-i18n="news.postsHeading">All posts</h2>
     <div class="post-grid">
       {% for post in collections.posts | reverse %}{% include "components/post-card.njk" %}{% endfor %}
     </div>
